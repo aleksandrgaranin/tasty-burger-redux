@@ -7,7 +7,7 @@ import Chackout from './containers/Checkout/Checkout';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-  // To tes componentWillUnmount
+  // To test componentWillUnmount
   //state = {
   //   show: true
   // };
