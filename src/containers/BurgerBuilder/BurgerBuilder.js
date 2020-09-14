@@ -12,14 +12,6 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actionType from '../../store/actions';
 
 
-
-const INGREDIENT_PRICES = {
-    salad: 0.5,
-    cheese: 1,
-    meat: 1.3,
-    bacon: 0.7
-};
-
 class BurgerBuilder extends Component {
 
     state = {
@@ -129,7 +121,7 @@ class BurgerBuilder extends Component {
                         disabled={disabledInfo}
                         purchaseable={this.state.purchaseable}
                         ordered={this.purchaseHandler}
-                        price={this.state.totalPrice}
+                        price={this.props.price}
                     />       
                 </Aux>
             )
@@ -137,7 +129,7 @@ class BurgerBuilder extends Component {
                 ingredients={this.props.ing}
                 purchaseCanceled={this.purchaseCanselHandler}
                 purchaseContinued={this.purchaseContinueHandler}
-                price={this.state.totalPrice}
+                price={this.props.price}
             />;
 
         }       
@@ -160,7 +152,8 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = state => {
     return {
-        ing: state.ingredients
+        ing: state.ingredients,
+        price: state.totalPrice
     };
 }
 
