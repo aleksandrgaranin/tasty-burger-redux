@@ -14,8 +14,7 @@ import * as actionType from '../../store/actions';
 
 class BurgerBuilder extends Component {
 
-    state = {
-        
+    state = {        
         // purchaseable: false,
         purchasing: false,
         loading: false,
@@ -86,17 +85,21 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-       
-        const queryParams = [];
-        for(let i in this.state.ingredients) {
-            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
-        }
-        queryParams.push('price=' + this.state.totalPrice);
-        const queryString = queryParams.join('&');
-        this.props.history.push({
-            pathname: '/chackout',
-            search:'?' + queryString
-        });
+        // OLD CODE 
+        // const queryParams = [];
+        // for(let i in this.state.ingredients) {
+        //     queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+        // }
+        // queryParams.push('price=' + this.state.totalPrice);
+        // const queryString = queryParams.join('&');
+        // this.props.history.push({
+        //     pathname: '/chackout',
+        //     search:'?' + queryString
+        // });
+
+        //NEW CODE with REDUX
+
+        this.props.history.push('/checkout');
     }
 
     render () {
