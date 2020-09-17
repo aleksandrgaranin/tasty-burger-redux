@@ -33,7 +33,7 @@ export const setIngredients = (ingredients) => {
 
 export const initIngredients = () => {
     return dispatch => {
-        axios.get('https://tasty-burger-953f1.firebaseio.com/ingredients.jso')
+        axios.get('https://tasty-burger-953f1.firebaseio.com/ingredients.json')
         .then(response => {
             dispatch(setIngredients(response.data));
         })
