@@ -5,7 +5,6 @@ import Button from '../../UI/Button/Button';
 
 
 class OrderSummery extends Component {
-    // this could be a functional component, doesn't have to be a class
     componentWillUpdate() {
         console.log('[OrderSummery.js] will update')
     }

@@ -7,17 +7,6 @@ import Checkout from './containers/Checkout/Checkout';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-  // To test componentWillUnmount
-  //state = {
-  //   show: true
-  // };
-
-  // componentDidMount() {
-  //   setTimeout(()=>{
-  //     this.setState({show:false});
-  //   },5000);
-  // };
-  // {this.state.show ? <BurgerBuilder/>:null} IN JSX
   render(){
     return  (
     <div>
