@@ -26,7 +26,7 @@ class Auth extends Component {
             password: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'passsword',
+                    type: 'password',
                     placeholder: 'Password'
                 },
                 value: '',
@@ -35,14 +35,16 @@ class Auth extends Component {
                     minLength: 6
                 },
                 valid: false,
-                touched: false
-            }           
-        }
+                touched: false,
+                
+            }                   
+        },
+        isSingup: true    
     }
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth(this.state.controls.email.value,this.state.controls.password.value);
+        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSingup);
       
     }
 
@@ -90,6 +92,12 @@ class Auth extends Component {
         this.setState({controls: updatedControls})
     }   
 
+    switchAuthModeHandler = () => {
+        this.setState(prevState => {
+            return {isSingup: !prevState.isSingup};
+        })
+    }
+
     render () {
         const formElementsArrey = [];
         for (let key in this.state.controls){
@@ -116,6 +124,9 @@ class Auth extends Component {
                     {form}
                     <Button btnType="Success">Submit</Button>
                 </form>
+                <Button 
+                    clicked={this.switchAuthModeHandler}
+                    btnType="Danger">SWITCH TO {this.state.isSingup ? 'SINGIN': 'SINGUP'}</Button>
             </div>
         );
     }
@@ -123,7 +134,7 @@ class Auth extends Component {
 
 const mapDispatchToProps = dispatch => {
     return{ 
-        onAuth:(email, password) => dispatch(actions.auth(email, password))
+        onAuth:(email, password, isSingup) => dispatch(actions.auth(email, password, isSingup))
     }
 }
 
