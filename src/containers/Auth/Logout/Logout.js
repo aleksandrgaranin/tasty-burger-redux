@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { act } from 'react-dom/test-utils';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
 
