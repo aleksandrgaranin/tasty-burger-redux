@@ -11,7 +11,7 @@ import * as actions from '../../store/actions/index';
 
 class Orders extends Component {   
     componentDidMount(){
-        this.props.onFetchOrder();
+        this.props.onFetchOrder(this.props.token);
     }
 
     render () {
@@ -35,13 +35,14 @@ class Orders extends Component {
 const mapStateToProps = state => {
     return{
         orders: state.ordr.orders,
-        loading: state.ordr.loading
+        loading: state.ordr.loading,
+        token: state.auth.token
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrder: () => dispatch(actions.fetchOrders())
+        onFetchOrder: (token) => dispatch(actions.fetchOrders(token))
     }
 }
 
