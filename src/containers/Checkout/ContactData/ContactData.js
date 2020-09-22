@@ -132,8 +132,6 @@ class ContactData extends Component {
             [inputIdentifier]: updatedFormElement
         });
         
-        console.log(updatedFormElement)
-
         let formIsValid = true; // Over all validation
         for (let inputIdentifier in updatedOrderForm) {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
